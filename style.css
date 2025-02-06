@@ -1,1 +1,514 @@
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #2F2E41;
+    --gradient: linear-gradient(45deg, #6C63FF, #3F3D56);
+}
+
+/* ========= GLOBALNI STILOVI ========= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* ========= ANIMACIJE ========= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    padding: 5rem 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.section h2 {
+    text-align: center; /* Centriraj tekst */
+    margin-bottom: 2rem; /* Ako želiš razmak između naslova i sadržaja */
+    font-size: 2rem;
+}
+
+
+/* ========= NAVIGACIJA ========= */
+.nav {
+    position: fixed;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* ========= HERO SEKCIJA ========= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(-45deg, #6C63FF, #3F3D56, #FF6B6B, #FF8E53);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content h1 span {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 2s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.5s;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(255, 107, 107, 0.8); }
+    to { text-shadow: 0 0 20px rgba(255, 142, 83, 0.8); }
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease-out 1s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 15px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-20px); }
+    60% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes scroll {
+    0% { top: 10px; opacity: 1; }
+    100% { top: 30px; opacity: 0; }
+}
+
+/* ========= PROJEKTI ========= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.project-link:hover {
+    background: var(--secondary-color);
+}
+
+/* ========= VJEŠTINE SEKCIJA ========= */
+#skills {
+    background-color: #f9f9f9;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.skill span {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+/* ========= O MENI SEKCIJA ========= */
+#about {
+    background-color: #f9f9f9;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+}
+
+.bio {
+    text-align: left;
+}
+
+.bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* ========= KONTAKT SEKCIJA ========= */
+#contact {
+    background-color: #fff;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* ========= RESPONZIVNOST ========= */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background: white;
+        width: 100%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: right 0.3s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .bio {
+        text-align: center;
+    }
+
+    .profile-img {
+        max-width: 300px;
+    }
+
+    .skill {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .skill i {
+        font-size: 1.5rem;
+    }
+
+    .skill span {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill {
+        padding: 0.5rem 1rem;
+    }
+
+    .skill i {
+        font-size: 1.2rem;
+    }
+
+    .skill span {
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ========= LOADING ANIMACIJA ========= */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
 
