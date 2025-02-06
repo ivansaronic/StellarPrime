@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvoj Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <nav class="nav">
+        <a href="#home" class="logo">Stellar Prime</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">O meni</a>
+            <a href="#projects">Projekti</a>
+            <a href="#skills">Vještine</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1 class="animated-text">Dizajniramo <span>izvanredna</span> iskustva</h1>
+        <p class="subtitle">Frontend Developer & UI/UX Entuzijast</p>
+        <a href="#projects" class="cta-btn">Moji radovi</a>
+    </div>
+    <div class="scroll-indicator"></div>
+</section>
+
+<!-- O meni -->
+<section id="about" class="section">
+    <h2>Kreativni developer s okom za detalje</h2>
+    <div class="about-grid">
+        <img src="images/your-photo.jpg" alt="Tvoja fotografija" class="profile-img">
+        <div class="bio">
+            <p>Ovdje neki opis</p>
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="CodePen"><i class="fab fa-codepen"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projekti -->
+<section id="projects" class="section">
+    <h2>Istaknuti projekti</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-img" style="background-image: url('images/project1.jpg')"></div>
+            <div class="project-info">
+                <h3>Web aplikacija</h3>
+                <p>React + Node.js</p>
+                <a href="#" class="project-link">Pogledaj projekt</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img" style="background-image: url('images/project2.jpg')"></div>
+            <div class="project-info">
+                <h3>Portfolio stranica</h3>
+                <p>HTML, CSS, JavaScript</p>
+                <a href="#" class="project-link">Pogledaj projekt</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img" style="background-image: url('images/project3.jpg')"></div>
+            <div class="project-info">
+                <h3>E-commerce platforma</h3>
+                <p>Vue.js + Firebase</p>
+                <a href="#" class="project-link">Pogledaj projekt</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vještine -->
+<section id="skills" class="section">
+    <h2>Tehnologije</h2>
+    <div class="skills-container">
+        <div class="skill"><i class="fab fa-html5" aria-label="HTML5"></i>HTML5</div>
+        <div class="skill"><i class="fab fa-css3-alt" aria-label="CSS3"></i>CSS3</div>
+        <div class="skill"><i class="fab fa-js" aria-label="JavaScript"></i>JavaScript</div>
+        <div class="skill"><i class="fab fa-react" aria-label="React"></i>React</div>
+        <div class="skill"><i class="fab fa-node-js" aria-label="Node.js"></i>Node.js</div>
+        <div class="skill"><i class="fab fa-git" aria-label="Git"></i>Git</div>
+        <div class="skill"><i class="fab fa-python" aria-label="Python"></i>Python</div>
+        <div class="skill"><i class="fab fa-figma" aria-label="Figma"></i>Figma</div>
+    </div>
+</section>
+
+<!-- Kontakt -->
+<section id="contact" class="section">
+    <h2>Javite se</h2>
+    <form class="contact-form">
+        <div class="form-group">
+            <input type="text" placeholder="Ime" required>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <textarea rows="5" placeholder="Poruka" required></textarea>
+        </div>
+        <button type="submit" class="cta-btn">Pošalji</button>
+    </form>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
